@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-undef */
+/* eslint-disable no-unused-vars */
 module.exports = {
   env: { browser: true, es2020: true, node: true },
   extends: [
