@@ -15,7 +15,7 @@ const Header = () => {
     console.log("signOut successfully");
   };
   return (
-    <div className="navbar flex justify-around bg-stone-500 text-white">
+    <div className="navbar px-8 py-4 flex justify-around bg-stone-500 text-white">
       <div className="flex-none  md:hidden">
         <button
           onClick={() => setOpen(!open)}
@@ -34,7 +34,7 @@ const Header = () => {
         </button>
       </div>
       <div className="flex-1 gap-3">
-        <img className="w-12 h-12" src={logo} alt="" />
+        <img className="w-10 h-10" src={logo} alt="" />
         <h3 className="text-3xl font-serif font-bold ">ToyTrove</h3>
       </div>
       <div className="flex-none   gap-2">
@@ -55,7 +55,7 @@ const Header = () => {
           </li>
           <li>
             <NavLink
-              to="/"
+              to="/alltoys"
               aria-label="Home"
               title="Home"
               className={({ isActive }) => (isActive ? "active" : "default")}>
