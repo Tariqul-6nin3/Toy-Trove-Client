@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import animationData from "../assets/green-login.json";
 import Lottie from "react-lottie";
+
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
@@ -43,23 +44,23 @@ const Login = () => {
       }}
       className="flex items-center h-screen bg-gray-100">
       <div className="w-full max-w-5xl mx-auto flex md:flex-row flex-col justify-between items-center">
-        {/* lottie animation here */}
-        <div>
-          <div className="">
-            <Lottie options={defaultOptions} height={400} width={350}></Lottie>
+        <div className="w-full md:w-1/2">
+          <div className="max-w-lg mx-auto">
+            <Lottie options={defaultOptions} height={400} width={350} />
           </div>
         </div>
         <form
           onSubmit={handleLogin}
-          className=" bg-white px-4 py-6 rounded-t-2xl">
-          <div className="mb-4">
+          className="bg-white px-8 py-6 rounded-t-2xl md:ml-8 md:px-12 md:py-8">
+          <h2 className="text-2xl font-bold mb-6 text-gray-700">Login</h2>
+          <div className="mb-6">
             <label
               className="block text-gray-700 font-bold mb-2"
               htmlFor="email">
               Email
             </label>
             <input
-              className="border-b-2 border-gray-300 focus:border-blue-500 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="border-b-2 border-gray-300 focus:border-blue-500  appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight shadow-2xl focus:outline-none focus:shadow-outline"
               id="email"
               type="email"
               name="email"
@@ -74,7 +75,7 @@ const Login = () => {
               Password
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="border-b-2 border-gray-300 focus:border-blue-500 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="password"
               type="password"
               name="password"
@@ -91,18 +92,11 @@ const Login = () => {
           </div>
           <hr className="border-2 text-black text-center mb-6" />
           <div className="flex md:flex-row flex-col justify-center">
-            <button className="btn btn-outline md:mx-2 mt-4">
-              <FaGoogle className="mr-3 text-2xl" />
-              Continue with Google
-            </button>
-            <button className="btn btn-outline mt-3 md:mt-4 md:mx-2">
-              <FaGithub className="mr-3 text-2xl" />
-              Continue with Github
-            </button>
+            {/* Social login buttons */}
           </div>
           <div className="mt-6 text-center">
             <p className="text-gray-700 text-base">
-              New to here? please{" "}
+              New to here? Please{" "}
               <Link
                 className="text-red-500 ml-2 text-lg font-semibold"
                 to="/register">

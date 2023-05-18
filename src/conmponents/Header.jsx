@@ -74,7 +74,7 @@ const Header = () => {
           </li>
 
           {user ? (
-            <div>
+            <div className="flex  gap-4 mb">
               <li>
                 <NavLink
                   onClick={handlelogOut}
@@ -90,7 +90,7 @@ const Header = () => {
               <div className="mb-2">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div
-                    className="w-10 rounded-full mb-4"
+                    className="w-10 rounded-full mb-16"
                     data-tooltip-id="my-tooltip"
                     data-tooltip-content={user.displayName}
                     data-tooltip-place="left">
