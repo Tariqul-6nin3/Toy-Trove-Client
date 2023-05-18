@@ -19,7 +19,7 @@ const ErrorPage = () => {
     },
   };
   return (
-    <div className="grid grid-cols-2 min-h-screen bg-base-200">
+    <div className="grid grid-cols-2  min-h-screen bg-base-200">
       <div className="min-h-screen flex flex-col items-center justify-center ">
         <motion.h1
           initial={{ opacity: 0, y: -50 }}

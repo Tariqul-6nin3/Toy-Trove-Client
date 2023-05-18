@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "daisyui": "^2.51.6",
+    "firebase": "^9.22.0",
     "framer-motion": "^10.12.12",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
@@ -19,6 +20,7 @@
     "react-icons": "^4.8.0",
     "react-lottie": "^1.2.3",
     "react-router-dom": "^6.11.2",
+    "react-tooltip": "^5.13.0",
     "sort-by": "^1.2.0"
   },
   "devDependencies": {
