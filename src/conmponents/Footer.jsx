@@ -39,6 +39,9 @@ const Footer = () => {
           <FaTiktok className="md:text-3xl text-2xl font-bold"></FaTiktok>
         </div>
       </div>
+      <div>
+        <p>@copy</p>
+      </div>
     </footer>
   );
 };

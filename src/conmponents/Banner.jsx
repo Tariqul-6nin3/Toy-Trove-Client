@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import banner from "../../public/banner12333.jpg";
+import "../conmponents/styles/root.css";
 
 const Banner = () => {
   return (
-    <div className="relative max-h-screen z-0 ">
+    <div className="banner relative max-h-screen z-0 ">
       <img className="w-full object-cover h-screen" src={banner} alt="Banner" />
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="absolute inset-0 flex flex-col justify-center items-center text-white">

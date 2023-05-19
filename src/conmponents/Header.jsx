@@ -15,7 +15,7 @@ const Header = () => {
     console.log("signOut successfully");
   };
   return (
-    <div className="navbar md:px-8 py-6  flex justify-center bg-zinc-50">
+    <div className="navbar md:px-8 py-6  flex justify-evenly bg-zinc-50">
       <div className="flex-none  md:hidden">
         <button
           onClick={() => setOpen(!open)}

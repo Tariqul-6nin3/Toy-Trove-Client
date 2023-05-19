@@ -1,7 +1,7 @@
-// import { Rating } from "@smastrom/react-rating";
+import Swal from "sweetalert2";
 
 /* eslint-disable no-unused-vars */
-const ToyList = ({ toy }) => {
+const MytoyList = ({ toy }) => {
   console.log(toy);
   const {
     _id,
@@ -15,15 +15,41 @@ const ToyList = ({ toy }) => {
     subcategory,
     rating,
   } = toy;
-
+  const handleDelelte = _id => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(result => {
+      if (result.isConfirmed) {
+        console.log("deleted");
+        fetch(`http://localhost:5000/alltoys/${_id}`, {
+          method: "DELETE",
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your toy has been deleted.", "success");
+            }
+          });
+      }
+    });
+  };
   return (
-    <div className="overflow-x-auto w-full">
+    <div>
       <table className="table w-full">
         <tbody>
           <tr>
             <th>
               <label>
-                <button className="rounded-full bg-slate-900 text-white px-2 py-1">
+                <button
+                  onClick={() => handleDelelte(_id)}
+                  className="rounded-full bg-slate-900 text-white px-2 py-1">
                   X
                 </button>
               </label>
@@ -57,4 +83,4 @@ const ToyList = ({ toy }) => {
   );
 };
 
-export default ToyList;
+export default MytoyList;
