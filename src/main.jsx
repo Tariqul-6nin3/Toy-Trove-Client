@@ -11,6 +11,7 @@ import Register from "./conmponents/Register";
 import Context from "./providers/Context";
 import Mytoys from "./conmponents/Mytoys";
 import AddToys from "./conmponents/AddToys";
+import AllToys from "./conmponents/AllToys";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
       {
         path: "addtoys",
         element: <AddToys />,
+      },
+      {
+        path: "alltoys",
+        element: <AllToys />,
+        loader: () => fetch("http://localhost:5000/alltoys"),
       },
     ],
   },
