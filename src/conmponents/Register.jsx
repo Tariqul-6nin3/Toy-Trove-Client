@@ -54,7 +54,7 @@ const Register = () => {
       style={{
         background: "linear-gradient(to bottom, #0f0c29, #302b63, #24243e)",
       }}
-      className="grid grid-cols-2 min-h-screen">
+      className="grid grid-cols-2">
       <div className="max-w-lg flex items-center mx-auto">
         <Lottie options={defaultOptions} height={650} width={550} />
       </div>
@@ -135,7 +135,14 @@ const Register = () => {
               </div>
               <p className="text-red-700 text-base ">{error}</p>
               <div className="form-control w-full md:w-1/2 mx-auto mt-3">
-                <button className="btn btn-primary ">Sign Up</button>
+                <button
+                  style={{
+                    background:
+                      "linear-gradient(to bottom, #0f0c29, #302b63, #24243e)",
+                  }}
+                  className="btn  ">
+                  Sign Up
+                </button>
               </div>
               <p className="mt-3">
                 Already have an account?

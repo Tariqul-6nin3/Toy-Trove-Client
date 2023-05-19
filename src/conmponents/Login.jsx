@@ -1,16 +1,22 @@
 /* eslint-disable no-unused-vars */
 import animationData from "../assets/green-login.json";
 import Lottie from "react-lottie";
-
+import { getAuth } from "firebase/auth";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { myContext } from "../providers/Context";
+import { signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider } from "firebase/auth";
+import app from "../firebase.config";
 
 const Login = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState();
   const { loggedInUser } = useContext(myContext);
+
+  const googleProvider = new GoogleAuthProvider();
+  const auth = getAuth(app);
 
   const defaultOptions = {
     loop: true,
@@ -37,6 +43,18 @@ const Login = () => {
       .catch(error => console.log(error.message));
   };
 
+  const handleGoogleLogIn = () => {
+    signInWithPopup(auth, googleProvider)
+      .then(result => {
+        const googleUser = result.user;
+        console.log(googleUser);
+        setUser(googleUser);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
   return (
     <div
       style={{
@@ -51,8 +69,10 @@ const Login = () => {
         </div>
         <form
           onSubmit={handleLogin}
-          className="bg-white px-8 py-6 rounded-t-2xl md:ml-8 md:px-12 md:py-8">
-          <h2 className="text-2xl font-bold mb-6 text-gray-700">Login</h2>
+          className="bg-white px-8 py-6 rounded-t-2xl md:ml-5 md:px-16 md:py-8">
+          <h2 className="text-4xl text-center  font-bold mb-6 text-black">
+            Login
+          </h2>
           <div className="mb-6">
             <label
               className="block text-gray-700 font-bold mb-2"
@@ -92,7 +112,12 @@ const Login = () => {
           </div>
           <hr className="border-2 text-black text-center mb-6" />
           <div className="flex md:flex-row flex-col justify-center">
-            {/* Social login buttons */}
+            <button
+              onClick={handleGoogleLogIn}
+              className="btn btn-outline md:mx-2 mt-4">
+              <FaGoogle className="mr-3 text-2xl" />
+              Continue with Google
+            </button>
           </div>
           <div className="mt-6 text-center">
             <p className="text-gray-700 text-base">

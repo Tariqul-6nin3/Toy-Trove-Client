@@ -9,6 +9,8 @@ import Login from "./conmponents/Login";
 import Blogs from "./conmponents/Blogs";
 import Register from "./conmponents/Register";
 import Context from "./providers/Context";
+import Mytoys from "./conmponents/Mytoys";
+import AddToys from "./conmponents/AddToys";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,14 @@ const router = createBrowserRouter([
       {
         path: "blogs",
         element: <Blogs />,
+      },
+      {
+        path: "mytoys",
+        element: <Mytoys />,
+      },
+      {
+        path: "addtoys",
+        element: <AddToys />,
       },
     ],
   },

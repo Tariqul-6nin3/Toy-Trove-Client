@@ -15,7 +15,7 @@ const Header = () => {
     console.log("signOut successfully");
   };
   return (
-    <div className="navbar px-8 py-4 flex justify-around bg-stone-500 text-white">
+    <div className="navbar md:px-8 py-6  flex justify-center bg-zinc-50">
       <div className="flex-none  md:hidden">
         <button
           onClick={() => setOpen(!open)}
@@ -33,16 +33,16 @@ const Header = () => {
           </svg>
         </button>
       </div>
-      <div className="flex-1 gap-3">
+      <div className="flex-1 ju">
         <img className="w-10 h-10" src={logo} alt="" />
         <h3 className="text-3xl font-serif font-bold ">ToyTrove</h3>
       </div>
-      <div className="flex-none   gap-2">
+      <div className="flex justify-center">
         <div
-          className={`md:mr-20 text-2xl font-semibold md:text-xl list-none md:flex md:space-x-12 ${
+          className={`px-14 text-2xl font-semibold md:text-xl z-20 list-none md:flex md:space-x-6 ${
             open
               ? "absolute -top-40 md:top-6 right-0"
-              : "absolute top-16 bg-orange-100 w-full text-center  flex gap-3 left-0 h-48 pt-3 pb-4 items-center  flex-col "
+              : "absolute top-24 bg-slate-50 w-full text-center  flex gap-3 left-0 h-96 pt-3 pb-4 items-center  flex-col "
           }`}>
           <li>
             <NavLink
@@ -74,8 +74,30 @@ const Header = () => {
           </li>
 
           {user ? (
-            <div className="flex  gap-4 mb">
+            <div className="md:flex  space-y-4 md:space-y-0 md:gap-4">
               <li>
+                <NavLink
+                  to="/mytoys"
+                  aria-label="Blogs"
+                  title="Blogs"
+                  className={({ isActive }) =>
+                    isActive ? "active" : "default"
+                  }>
+                  My Toys
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/addtoys"
+                  aria-label="Blogs"
+                  title="Blogs"
+                  className={({ isActive }) =>
+                    isActive ? "active" : "default"
+                  }>
+                  Add a Toys
+                </NavLink>
+              </li>
+              <li className="">
                 <NavLink
                   onClick={handlelogOut}
                   to="/login"
@@ -84,30 +106,30 @@ const Header = () => {
                   className={({ isActive }) =>
                     isActive ? "active" : "default"
                   }>
-                  SignOut
+                  LogOut
                 </NavLink>
               </li>
               <div className="mb-2">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div
-                    className="w-10 rounded-full mb-16"
+                    className="w-24 rounded-full mb-16"
                     data-tooltip-id="my-tooltip"
                     data-tooltip-content={user.displayName}
                     data-tooltip-place="left">
                     <Tooltip id="my-tooltip"></Tooltip>
-                    <img src={user.photoURL} alt={user.displayName} />
+                    <img src={user.photoURL} alt={user.photoURL} />
                   </div>
                 </label>
               </div>
             </div>
           ) : (
-            <li>
+            <li className="">
               <NavLink
                 to="/login"
                 aria-label="login"
                 title="login"
                 className={({ isActive }) => (isActive ? "active" : "default")}>
-                Login
+                LogIn
               </NavLink>
             </li>
           )}

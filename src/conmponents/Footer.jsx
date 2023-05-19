@@ -4,8 +4,8 @@ const Footer = () => {
   return (
     <footer className="footer p-10 bg-black text-white ">
       <div>
-        <div className="bg-slate-400">
-          <img className="w-16 h-16" src={logo} alt="" />
+        <div className="">
+          <img className="w-16 h-16 " src={logo} alt="" />
         </div>
         <p>
           ACME Industries Ltd.
