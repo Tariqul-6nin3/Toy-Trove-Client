@@ -1,8 +1,10 @@
 // import { Rating } from "@smastrom/react-rating";
 
+import { Link } from "react-router-dom";
+
 /* eslint-disable no-unused-vars */
 const ToyList = ({ toy }) => {
-  console.log(toy);
+  // console.log(toy);
   const {
     _id,
     seller,
@@ -15,6 +17,7 @@ const ToyList = ({ toy }) => {
     subcategory,
     rating,
   } = toy;
+  console.log(_id);
 
   return (
     <div className="overflow-x-auto w-full">
@@ -46,9 +49,11 @@ const ToyList = ({ toy }) => {
             <td>{quantity}</td>
             <td>{price}</td>
             <th>
-              <button className="px-3 py-2 bg-slate-950 rounded-xl">
-                view Details
-              </button>
+              <Link to={`/singletoy/${_id}`}>
+                <button className="px-3 py-2 bg-slate-950 text-white rounded-xl">
+                  View Details
+                </button>
+              </Link>
             </th>
           </tr>
         </tbody>

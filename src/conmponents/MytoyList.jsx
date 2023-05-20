@@ -27,7 +27,7 @@ const MytoyList = ({ toy }) => {
     }).then(result => {
       if (result.isConfirmed) {
         console.log("deleted");
-        fetch(`https://localhost:5000/alltoys/${_id}`, {
+        fetch(`http://localhost:5000/mytoys/${_id}`, {
           method: "DELETE",
         })
           .then(res => res.json())
