@@ -3,17 +3,22 @@ import animationData from "../assets/green-login.json";
 import Lottie from "react-lottie";
 import { getAuth } from "firebase/auth";
 import { FaGoogle, FaGithub } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { myContext } from "../providers/Context";
 import { signInWithPopup } from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth";
 import app from "../firebase.config";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const navigate = useNavigate();
+  const [error, setError] = useState();
   const [user, setUser] = useState();
   const { loggedInUser } = useContext(myContext);
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const googleProvider = new GoogleAuthProvider();
   const auth = getAuth(app);
@@ -37,10 +42,12 @@ const Login = () => {
         const loggedUser = result.user;
         console.log(loggedUser);
         setUser(loggedUser);
+        toast("LogIn successfully!!!");
         form.reset();
-        // navigate(from, { replace: true });
+        setError("");
+        navigate(from, { replace: true });
       })
-      .catch(error => console.log(error.message));
+      .catch(error => setError(error.message));
   };
 
   const handleGoogleLogIn = () => {
@@ -51,7 +58,7 @@ const Login = () => {
         setUser(googleUser);
       })
       .catch(error => {
-        console.error(error);
+        setError(error.message);
       });
   };
 
@@ -61,6 +68,18 @@ const Login = () => {
         background: "linear-gradient(to bottom, #0f0c29, #302b63, #24243e)",
       }}
       className="flex items-center h-screen bg-gray-100">
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <div className="w-full max-w-5xl mx-auto flex md:flex-row flex-col justify-between items-center">
         <div className="w-full md:w-1/2">
           <div className="max-w-lg mx-auto">
@@ -110,6 +129,9 @@ const Login = () => {
               Login
             </button>
           </div>
+          <p className="text-red-900 font-semibold text-xl mb-5 mt-3">
+            {error}
+          </p>
           <hr className="border-2 text-black text-center mb-6" />
           <div className="flex md:flex-row flex-col justify-center">
             <button

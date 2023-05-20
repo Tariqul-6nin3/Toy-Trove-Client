@@ -1,6 +1,9 @@
-import Swal from "sweetalert2";
-
 /* eslint-disable no-unused-vars */
+
+import Swal from "sweetalert2";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const AddToys = () => {
   const handelAddToy = event => {
     event.preventDefault();
@@ -28,7 +31,7 @@ const AddToys = () => {
     };
     console.log(newToy);
 
-    fetch("http://localhost:5000", {
+    fetch("http://localhost:5000/", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -43,18 +46,25 @@ const AddToys = () => {
             title: "Success!",
             text: "Toy added successfully",
             icon: "success",
-            confirmButtonText: "Cool",
+            confirmButtonText: "OK",
           });
+          form.reset();
         }
       });
   };
+  const toastifying = () => {
+    toast("Toy Up For Sell Successfully!!!");
+  };
+
   return (
     <div
       style={{
         background: "linear-gradient(to bottom, #0f0c29, #302b63, #24243e)",
       }}
       className="container mx-auto py-10">
-      <h2 className="text-4xl font-bold mb-8 text-center">Add A Toy</h2>
+      <h2 className="text-4xl font-bold mb-8 text-center text-white font-serif">
+        Add A Toy
+      </h2>
       <form
         onSubmit={handelAddToy}
         className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-lg">
@@ -127,9 +137,9 @@ const AddToys = () => {
             id="subCategory"
             name="subcategory"
             required>
-            <option value="">Marvel</option>
-            <option value="Math Toys">Avenger</option>
-            <option value="Language Toys">Star War</option>
+            <option value="Marvel">Marvel</option>
+            <option value="Avenger">Avenger</option>
+            <option value="StarWar">Star War</option>
           </select>
         </div>
         <div className="mb-6">
@@ -190,10 +200,23 @@ const AddToys = () => {
         </div>
         <div className="flex justify-center">
           <button
+            onClick={toastifying}
             className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit">
             Add Toy
           </button>
+          <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={true}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
         </div>
       </form>
     </div>

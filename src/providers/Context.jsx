@@ -12,28 +12,32 @@ import app from "../firebase.config";
 const auth = getAuth(app);
 export const myContext = createContext();
 const Context = ({ children }) => {
-    const [user,setUser]=useState(null)
+  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const loggedInUser = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const logOutUser = () => {
+    setLoading(true);
     return signOut(auth);
   };
 
   useEffect(() => {
     const unsuscribe = onAuthStateChanged(auth, currentUser => {
       setUser(currentUser);
+      setLoading(false);
     });
-      return () => {
-          return unsuscribe();
-      }
+    return () => {
+      return unsuscribe();
+    };
   }, []);
-  const authInfo = { createUser, loggedInUser, logOutUser,user };
+  const authInfo = { createUser, loggedInUser, logOutUser, user, loading };
   return <myContext.Provider value={authInfo}>{children}</myContext.Provider>;
 };
 

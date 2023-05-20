@@ -1,9 +1,11 @@
-/* eslint-disable no-unused-vars */
 import { useLoaderData } from "react-router-dom";
 import ToyList from "./ToyList";
+// import ToyList from "./ToyList";
 
 const AllToys = () => {
-  const toys = useLoaderData();
+  const toysData = useLoaderData();
+
+  console.log(toysData);
 
   return (
     <div className="my-container">
@@ -22,8 +24,8 @@ const AllToys = () => {
           </tr>
         </thead>
       </table>
-      {toys.map(toy => (
-        <ToyList key={toy._id} toy={toy}></ToyList>
+      {toysData.map(toy => (
+        <ToyList key={toy._id} toy={toy} />
       ))}
     </div>
   );

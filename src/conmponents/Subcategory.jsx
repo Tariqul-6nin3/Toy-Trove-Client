@@ -1,5 +1,8 @@
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import Marvel from "./Marvel";
+import Avenger from "./Avenger";
+import Starwar from "./Starwar";
 const Subcategory = () => {
   return (
     <div className="my-container">
@@ -18,13 +21,13 @@ const Subcategory = () => {
         </div>
 
         <TabPanel>
-          <h2>Any content 1</h2>
+          <Marvel />
         </TabPanel>
         <TabPanel>
-          <h2>Any content 2</h2>
+          <Avenger />
         </TabPanel>
         <TabPanel>
-          <h2>Any content 2</h2>
+          <Starwar />
         </TabPanel>
       </Tabs>
     </div>

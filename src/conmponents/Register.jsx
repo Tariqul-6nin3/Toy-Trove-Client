@@ -27,7 +27,6 @@ const Register = () => {
     const name = form.name.value;
     const photo = form.photo.value;
     console.log(email, password);
-
     // validattion email
 
     if (password != confirm) {
@@ -133,7 +132,7 @@ const Register = () => {
                   placeholder="Enter the URL for your profile photo"
                 />
               </div>
-              <p className="text-red-700 text-base ">{error}</p>
+              <p className="text-red-700 text-xl font-semibold">{error}</p>
               <div className="form-control w-full md:w-1/2 mx-auto mt-3">
                 <button
                   style={{

@@ -4,16 +4,22 @@ import logo from "../../src/assets/toylogo.png";
 import { useContext, useState } from "react";
 import { myContext } from "../providers/Context";
 import { Tooltip } from "react-tooltip";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Header = () => {
   const { logOutUser, user } = useContext(myContext);
   const [open, setOpen] = useState(true);
 
   const handlelogOut = () => {
     logOutUser()
-      .then(() => {})
+      .then(() => {
+        console.log("signOut successfully");
+        toast("LogOut successfully!!!");
+      })
       .catch(error => {});
-    console.log("signOut successfully");
   };
+
   return (
     <div className="navbar md:px-8 py-6  flex justify-evenly bg-zinc-50">
       <div className="flex-none  md:hidden">
@@ -108,6 +114,18 @@ const Header = () => {
                   }>
                   LogOut
                 </NavLink>
+                <ToastContainer
+                  position="top-center"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop={true}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                  theme="light"
+                />
               </li>
               <div className="mb-2">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
