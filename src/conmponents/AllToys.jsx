@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import ToyList from "./ToyList";
 import { Vortex } from "react-loader-spinner";
-import PageTitle from "./PageTitle";
+import { Helmet } from "react-helmet";
 
 const AllToys = () => {
   const toysData = useLoaderData();
@@ -31,27 +31,31 @@ const AllToys = () => {
   }
 
   return (
-    <div className="my-container">
-      <PageTitle title="ToyTrove | alltoys" />
-      <table className="table w-full">
-        <thead>
-          <tr>
-            <th>
-              <span></span>
-            </th>
-            <th>Name</th>
-            <th>Seller</th>
-            <th>Sub-Category</th>
-            <th>Available Qty</th>
-            <th>Price</th>
-            <th>Details</th>
-          </tr>
-        </thead>
-      </table>
-      {toysData.map(toy => (
-        <ToyList key={toy._id} toy={toy} />
-      ))}
-    </div>
+    <>
+      <Helmet>
+        <title>ToyTrove | alltoys</title>
+      </Helmet>
+      <div className="my-container">
+        <table className="table w-full">
+          <thead>
+            <tr>
+              <th>
+                <span></span>
+              </th>
+              <th>Name</th>
+              <th>Seller</th>
+              <th>Sub-Category</th>
+              <th>Available Qty</th>
+              <th>Price</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+        </table>
+        {toysData.map(toy => (
+          <ToyList key={toy._id} toy={toy} />
+        ))}
+      </div>
+    </>
   );
 };
 

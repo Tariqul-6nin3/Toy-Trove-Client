@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { myContext } from "../providers/Context";
 import MytoyList from "./MytoyList";
 import { Vortex } from "react-loader-spinner";
+import { Helmet } from "react-helmet";
 
 const Mytoys = () => {
   const { user, loading, setLoading } = useContext(myContext);
@@ -37,30 +38,35 @@ const Mytoys = () => {
   }
 
   return (
-    <div className="my-container ">
-      <h2 className="text-3xl font-bold text-black text-center">
-        Here are my toys
-      </h2>
-      <table className="table w-full">
-        <thead>
-          <tr>
-            <th>
-              <span></span>
-            </th>
-            <th>Name</th>
-            <th>Seller</th>
-            <th>Sub-Category</th>
-            <th>Available Qty</th>
-            <th>Price</th>
-            <th>Details</th>
-          </tr>
-        </thead>
-      </table>
+    <>
+      <Helmet>
+        <title>ToyTrove | mytoys</title>
+      </Helmet>
+      <div className="my-container ">
+        <h2 className="text-3xl font-bold text-black text-center">
+          Here are my toys
+        </h2>
+        <table className="table w-full">
+          <thead>
+            <tr>
+              <th>
+                <span></span>
+              </th>
+              <th>Name</th>
+              <th>Seller</th>
+              <th>Sub-Category</th>
+              <th>Available Qty</th>
+              <th>Price</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+        </table>
 
-      {toys.map(toy => (
-        <MytoyList key={toy._id} setToys={setToys} toys={toys} toy={toy} />
-      ))}
-    </div>
+        {toys.map(toy => (
+          <MytoyList key={toy._id} setToys={setToys} toys={toys} toy={toy} />
+        ))}
+      </div>
+    </>
   );
 };
 
