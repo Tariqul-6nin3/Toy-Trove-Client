@@ -72,7 +72,7 @@ const Login = () => {
         style={{
           background: "linear-gradient(to bottom, #0f0c29, #302b63, #24243e)",
         }}
-        className="flex items-center h-screen bg-gray-100">
+        className="flex items-center h-screen w-full">
         <ToastContainer
           position="top-right"
           autoClose={5000}
@@ -85,15 +85,15 @@ const Login = () => {
           pauseOnHover
           theme="light"
         />
-        <div className="w-full max-w-5xl mx-auto flex md:flex-row flex-col justify-between items-center">
+        <div className="w-full max-w-5xl mx-auto flex md:flex-row gap-3 flex-col justify-between items-center">
           <div className="w-full md:w-1/2">
-            <div className="max-w-lg mx-auto">
-              <Lottie options={defaultOptions} height={400} width={350} />
+            <div className="max-w-lg mx-auto  animate-pulse">
+              <Lottie options={defaultOptions} height={500} width={450} />
             </div>
           </div>
           <form
             onSubmit={handleLogin}
-            className="bg-white px-8 py-6 rounded-t-2xl md:ml-5 md:px-16 md:py-8">
+            className="bg-[#e5e7eb] w-1/2 mx-auto px-5 py-4 rounded-t-2xl md:ml-5 md:px-8 md:py-5">
             <h2 className="text-4xl text-center  font-bold mb-6 text-black">
               Login
             </h2>
@@ -129,7 +129,11 @@ const Login = () => {
             </div>
             <div className="mb-6 text-center">
               <button
-                className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline"
+                style={{
+                  background:
+                    "linear-gradient(to bottom, #0f0c29, #302b63, #24243e)",
+                }}
+                className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-8 w-1/3 rounded-full focus:outline-none focus:shadow-outline"
                 type="submit">
                 Login
               </button>
@@ -137,17 +141,21 @@ const Login = () => {
             <p className="text-red-900 font-semibold text-xl mb-5 mt-3">
               {error}
             </p>
-            <hr className="border-2 text-black text-center mb-6" />
+            <div className="divider">OR</div>
             <div className="flex md:flex-row flex-col justify-center">
               <button
+                style={{
+                  background:
+                    "linear-gradient(to bottom, #0f0c29, #302b63, #24243e)",
+                }}
                 onClick={handleGoogleLogIn}
-                className="btn btn-outline md:mx-2 mt-4">
+                className="btn btn-outline md:mx-2 mt-4 text-white px-4">
                 <FaGoogle className="mr-3 text-2xl" />
                 Continue with Google
               </button>
             </div>
             <div className="mt-6 text-center">
-              <p className="text-gray-700 text-base">
+              <p className="text-gray-700 text-xl font-semibold ">
                 New to here? Please{" "}
                 <Link
                   className="text-red-500 ml-2 text-lg font-semibold"

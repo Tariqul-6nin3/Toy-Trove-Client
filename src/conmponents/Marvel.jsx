@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useContext, useEffect, useState } from "react";
 import { myContext } from "../providers/Context";
+import MarvelInfo from "./MarvelInfo";
 
 const Marvel = () => {
   const [marvel, setMarvel] = useState();
@@ -13,8 +14,12 @@ const Marvel = () => {
       .then(data => setMarvel(data));
   }, []);
   return (
-    <div>
-      <h1 className="text-4xl font bold">{marvel?.length}</h1>
+    <div className="grid grid-cols-1 md:grid-cols-3 ">
+      {marvel?.map(singleMarvel => (
+        <MarvelInfo
+          key={singleMarvel._id}
+          singleMarvel={singleMarvel}></MarvelInfo>
+      ))}
     </div>
   );
 };

@@ -9,7 +9,7 @@ const Home = () => {
       <Helmet>
         <title>ToyTrove | home</title>
       </Helmet>
-      <div>
+      <div className="bg-[#e5e7eb]">
         <Banner />
         <Gallery />
         <Subcategory />

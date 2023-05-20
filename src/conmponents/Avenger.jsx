@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useContext, useEffect, useState } from "react";
 import { myContext } from "../providers/Context";
+import AvengerInfo from "./AvengerInfo";
 
 const Avenger = () => {
   const [avenger, setAvenger] = useState();
@@ -13,8 +14,12 @@ const Avenger = () => {
       .then(data => setAvenger(data));
   }, []);
   return (
-    <div>
-      <h1 className="text-4xl font bold">{avenger?.length}</h1>
+    <div className="grid grid-cols-1 md:grid-cols-3">
+      {avenger?.map(singleAvenger => (
+        <AvengerInfo
+          key={singleAvenger._id}
+          singleAvenger={singleAvenger}></AvengerInfo>
+      ))}
     </div>
   );
 };

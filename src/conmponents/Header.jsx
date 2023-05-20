@@ -21,7 +21,7 @@ const Header = () => {
   };
 
   return (
-    <div className="navbar md:px-8 py-6  flex justify-evenly bg-zinc-50">
+    <div className="navbar md:px-8 py-5 shadow-2xl fixed z-50 rounded-b-lg  flex justify-evenly bg-[#e5e7eb]">
       <div className="flex-none  md:hidden">
         <button
           onClick={() => setOpen(!open)}

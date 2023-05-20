@@ -4,8 +4,12 @@ import Swal from "sweetalert2";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet";
+import { useContext } from "react";
+import { myContext } from "../providers/Context";
 
 const AddToys = () => {
+  const { user } = useContext(myContext);
+  console.log(user);
   const handelAddToy = event => {
     event.preventDefault();
     const form = event.target;
@@ -113,6 +117,7 @@ const AddToys = () => {
               className="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="sellerName"
               type="text"
+              defaultValue={user.displayName}
               name="seller"
               placeholder="Enter Seller Name"
               required
@@ -129,6 +134,7 @@ const AddToys = () => {
               id="sellerEmail"
               type="email"
               name="email"
+              defaultValue={user.email}
               placeholder="Enter Seller Email"
               required
             />

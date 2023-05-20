@@ -2,7 +2,7 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { myContext } from "../providers/Context";
-import animationdata2 from "../../src/assets/register.json";
+import animationdata2 from "../../src/assets/tariqul.json";
 import Lottie from "react-lottie";
 import { Helmet } from "react-helmet";
 
@@ -58,48 +58,44 @@ const Register = () => {
         style={{
           background: "linear-gradient(to bottom, #0f0c29, #302b63, #24243e)",
         }}
-        className="grid grid-cols-2">
-        <div className="max-w-lg flex items-center mx-auto">
-          <Lottie options={defaultOptions} height={650} width={550} />
+        className="grid gap-0 grid-cols-2 py-16 ">
+        <div className="max-w-lg flex items-center animate-pulse mx-auto">
+          <Lottie options={defaultOptions} height={650} width={500} />
         </div>
         <div className="w-10/12 mx-auto">
-          <div className="max-w-xl w-11/12 md:w-full md:max-w-2xl space-y-4 md:space-y-6 py-6 mx-auto ">
-            <div className=" text-center">
-              <h1 className="md:text-5xl text-4xl text-white font-bold py-4">
-                Register Here
-              </h1>
-            </div>
+          <div className="max-w-xl w-11/12 md:w-full md:max-w-2xl  md:space-y-6 py-10 mx-auto ">
             <form
               onSubmit={handleRegister}
-              className="card flex-shrink-0 mx-auto  shadow-2xl bg-base-100 px-3 md:px-4 py-4">
+              className=" w-11/12 flex-shrink-0 mx-auto rounded-xl bg-[#e5e7eb] shadow-2xl  px-3 md:px-4">
+              <div className=" text-center"></div>
               <div className="card-body">
                 <div className="form-control">
                   <label className="label">
-                    <span className="text-gray-700 font-bold mb-2">Name</span>
+                    <span className="text-gray-700 font-bold mb-1">Name</span>
                   </label>
                   <input
                     type="name"
                     name="name"
                     placeholder="name"
-                    className="input input-bordered"
+                    className="border-b-2 border-gray-300 focus:border-blue-500 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     required
                   />
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="text-gray-700 font-bold mb-2">Email</span>
+                    <span className="text-gray-700 font-bold mb-1">Email</span>
                   </label>
                   <input
                     type="email"
                     name="email"
                     placeholder="email"
-                    className="input input-bordered"
+                    className="border-b-2 border-gray-300 focus:border-blue-500 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     required
                   />
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="text-gray-700 font-bold mb-2">
+                    <span className="text-gray-700 font-bold mb-1">
                       Password
                     </span>
                   </label>
@@ -107,13 +103,13 @@ const Register = () => {
                     type="password"
                     name="password"
                     placeholder="password"
-                    className="input input-bordered"
+                    className="border-b-2 border-gray-300 focus:border-blue-500 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     required
                   />
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="text-gray-700 font-bold mb-2">
+                    <span className="text-gray-700 font-bold mb-1">
                       Confirm Password
                     </span>
                   </label>
@@ -121,13 +117,13 @@ const Register = () => {
                     type="password"
                     name="confirm"
                     placeholder="Confirm password"
-                    className="input input-bordered"
+                    className="border-b-2 border-gray-300 focus:border-blue-500 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     required
                   />
                 </div>
                 <div className="mb-4">
                   <label
-                    className="block text-gray-700 font-bold mb-2"
+                    className="block text-gray-700 font-bold mb-1"
                     htmlFor="photo">
                     Profile Photo URL
                   </label>
@@ -146,16 +142,16 @@ const Register = () => {
                       background:
                         "linear-gradient(to bottom, #0f0c29, #302b63, #24243e)",
                     }}
-                    className="btn  ">
+                    className="btn text-white ">
                     Sign Up
                   </button>
                 </div>
-                <p className="mt-3">
+                <p className="text-gray-700 text-xl mt-2 font-semibold">
                   Already have an account?
                   <Link
                     className="text-red-500 ml-2 text-lg font-semibold"
                     to="/login">
-                    Login?
+                    Login
                   </Link>
                 </p>
               </div>

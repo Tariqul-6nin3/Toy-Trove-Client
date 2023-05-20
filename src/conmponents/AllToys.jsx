@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import ToyList from "./ToyList";
@@ -5,15 +6,23 @@ import { Vortex } from "react-loader-spinner";
 import { Helmet } from "react-helmet";
 
 const AllToys = () => {
-  const toysData = useLoaderData();
+  // const toysData = useLoaderData();
   const [isLoading, setIsLoading] = useState(true);
+  const [alltoys, setAlltoys] = useState();
 
   useEffect(() => {
-    if (toysData) {
+    if (alltoys) {
       setIsLoading(false);
     }
-  }, [toysData]);
-
+  }, [alltoys]);
+  useEffect(() => {
+    const url = "http://localhost:5000/alltoys";
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        setAlltoys(data);
+      });
+  }, []);
   if (isLoading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
@@ -51,7 +60,7 @@ const AllToys = () => {
             </tr>
           </thead>
         </table>
-        {toysData.map(toy => (
+        {alltoys.map(toy => (
           <ToyList key={toy._id} toy={toy} />
         ))}
       </div>
