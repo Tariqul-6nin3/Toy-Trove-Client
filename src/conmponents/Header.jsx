@@ -64,7 +64,7 @@ const Header = () => {
               to="/alltoys"
               aria-label="Home"
               title="Home"
-              className={({ isActive }) => (isActive ? "active" : "default")}>
+              className={({ isActive }) => (isActive ? "active" : "default  ")}>
               All Toys
             </NavLink>
           </li>
@@ -74,7 +74,7 @@ const Header = () => {
               to="/blogs"
               aria-label="Blogs"
               title="Blogs"
-              className={({ isActive }) => (isActive ? "active" : "default")}>
+              className={({ isActive }) => (isActive ? "active" : "default ")}>
               Blogs
             </NavLink>
           </li>
@@ -127,7 +127,7 @@ const Header = () => {
                   theme="light"
                 />
               </li>
-              <div className="mb-2">
+              <div className="mb-2 ">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div
                     className="w-24 rounded-full mb-16"

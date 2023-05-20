@@ -4,11 +4,11 @@ import Subcategory from "./Subcategory";
 
 const Home = () => {
   return (
-    <>
+    <div>
       <Banner />
       <Gallery />
       <Subcategory />
-    </>
+    </div>
   );
 };
 

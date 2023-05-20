@@ -7,21 +7,34 @@ import gallery5 from "../../public/gallery5.jpg";
 import gallery6 from "../../public/gallery6.jpg";
 import gallery8 from "../../public/gallery8.jpg";
 import gallery9 from "../../public/gallery9.jpg";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const Gallery = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Set the animation duration
+    });
+  }, []);
+
   return (
     <div className="my-container mx-auto">
       <h2 className="text-4xl font-bold mb-8 text-center">Toys Gallery</h2>
       <div className="flex flex-wrap justify-center">
         <div>
-          <div className="w-44 h-60 mx-2 my-4 relative rounded-xl overflow-hidden hover:scale-110 duration-200 transition-transform">
+          <div
+            data-aos="flip-up"
+            className="w-44 h-60 mx-2 my-4 relative rounded-xl overflow-hidden hover:scale-110 duration-200 transition-transform">
             <img
               className="object-cover rounded-xl w-full h-full"
               src={gallery1}
               alt=""
             />
           </div>
-          <div className="w-44 h-60 mx-2 my-4 relative rounded-xl overflow-hidden hover:scale-110 duration-200 transition-transform">
+          <div
+            data-aos="flip-up"
+            className="w-44 h-60 mx-2 my-4 relative rounded-xl overflow-hidden hover:scale-110 duration-200 transition-transform">
             <img
               className="object-cover rounded-xl w-full h-full"
               src={gallery2}
@@ -29,7 +42,9 @@ const Gallery = () => {
             />
           </div>
         </div>
-        <div className="w-60 h-96 mx-2 my-4 mt-auto  bottom-0 rounded-xl overflow-hidden hover:scale-110 duration-200 transition-transform">
+        <div
+          data-aos="flip-up"
+          className="w-60 h-96 mx-2 my-4 mt-auto  bottom-0 rounded-xl overflow-hidden hover:scale-110 duration-200 transition-transform">
           <img
             className="object-cover rounded-xl w-full h-full"
             src={gallery3}
@@ -37,14 +52,18 @@ const Gallery = () => {
           />
         </div>
         <div>
-          <div className="w-44 h-60 mx-2 my-4 relative rounded-xl overflow-hidden hover:scale-110 duration-200 transition-transform">
+          <div
+            data-aos="flip-up"
+            className="w-44 h-60 mx-2 my-4 relative rounded-xl overflow-hidden hover:scale-110 duration-200 transition-transform">
             <img
               className="object-cover rounded-xl w-full h-full"
               src={gallery4}
               alt=""
             />
           </div>
-          <div className="w-44 h-60 mx-2 my-4 relative rounded-xl overflow-hidden hover:scale-110 duration-200 transition-transform">
+          <div
+            data-aos="flip-up"
+            className="w-44 h-60 mx-2 my-4 relative rounded-xl overflow-hidden hover:scale-110 duration-200 transition-transform">
             <img
               className="object-cover rounded-xl w-full h-full"
               src={gallery5}
@@ -52,7 +71,9 @@ const Gallery = () => {
             />
           </div>
         </div>
-        <div className="w-60 h-96 mx-2 my-4 mt-auto relative rounded-xl overflow-hidden hover:scale-110 duration-200 transition-transform">
+        <div
+          data-aos="flip-up"
+          className="w-60 h-96 mx-2 my-4 mt-auto relative rounded-xl overflow-hidden hover:scale-110 duration-200 transition-transform">
           <img
             className="object-cover rounded-xl w-full h-full"
             src={gallery6}
@@ -60,14 +81,18 @@ const Gallery = () => {
           />
         </div>
         <div>
-          <div className="w-44 h-60 mx-2 my-4 relative rounded-xl overflow-hidden hover:scale-110 duration-200 transition-transform">
+          <div
+            data-aos="flip-up"
+            className="w-44 h-60 mx-2 my-4 relative rounded-xl overflow-hidden hover:scale-110 duration-200 transition-transform">
             <img
               className="object-cover rounded-xl w-full h-full"
               src={gallery8}
               alt=""
             />
           </div>
-          <div className="w-44 h-60 mx-2 my-4 relative rounded-xl overflow-hidden hover:scale-110 duration-200 transition-transform">
+          <div
+            data-aos="flip-up"
+            className="w-44 h-60 mx-2 my-4 relative rounded-xl overflow-hidden hover:scale-110 duration-200 transition-transform">
             <img
               className="object-cover rounded-xl w-full h-full"
               src={gallery9}

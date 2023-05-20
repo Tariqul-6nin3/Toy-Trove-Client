@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import ToyList from "./ToyList";
 import { Vortex } from "react-loader-spinner";
+import PageTitle from "./PageTitle";
 
 const AllToys = () => {
   const toysData = useLoaderData();
@@ -31,6 +32,7 @@ const AllToys = () => {
 
   return (
     <div className="my-container">
+      <PageTitle title="ToyTrove | alltoys" />
       <table className="table w-full">
         <thead>
           <tr>

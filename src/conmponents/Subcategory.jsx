@@ -9,13 +9,13 @@ const Subcategory = () => {
       <h1 className="text-4xl text-black text-center mb-10 font-serif font-extrabold">
         Toys Category
       </h1>
-      <Tabs className="mx-auto w-full space-x-6 ">
+      <Tabs className="mx-auto w-full space-x-2 md:space-x-6 ">
         <div className="">
           <hr className="border-2 mb-3 font-bold text-black" />
-          <TabList className="flex justify-center font-bold text-xl gap-4">
+          <TabList className="flex justify-center font-bold text-lg md:text-xl gap-2 md:gap-4">
             <Tab>Marvel</Tab>
-            <Tab>Avengers</Tab>
-            <Tab>Star War</Tab>
+            <Tab>Avenger</Tab>
+            <Tab>StarWar</Tab>
           </TabList>
           <hr className="border-2 mt-4 font-bold text-black" />
         </div>
