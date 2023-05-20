@@ -1,8 +1,8 @@
-import Swal from "sweetalert2";
-
 /* eslint-disable no-unused-vars */
-const MytoyList = ({ toy }) => {
-  console.log(toy);
+import Swal from "sweetalert2";
+import UpdateToy from "./UpdateToy";
+
+const MytoyList = ({ toy, setToys, toys }) => {
   const {
     _id,
     seller,
@@ -15,7 +15,8 @@ const MytoyList = ({ toy }) => {
     subcategory,
     rating,
   } = toy;
-  const handleDelelte = _id => {
+
+  const handleDelete = _id => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -35,11 +36,14 @@ const MytoyList = ({ toy }) => {
             console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your toy has been deleted.", "success");
+              const remaining = toys.filter(toyy => toyy._id !== _id);
+              setToys(remaining);
             }
           });
       }
     });
   };
+
   return (
     <div>
       <table className="table w-full">
@@ -48,7 +52,7 @@ const MytoyList = ({ toy }) => {
             <th>
               <label>
                 <button
-                  onClick={() => handleDelelte(_id)}
+                  onClick={() => handleDelete(_id)}
                   className="rounded-full bg-slate-900 text-white px-2 py-1">
                   X
                 </button>
@@ -72,13 +76,17 @@ const MytoyList = ({ toy }) => {
             <td>{quantity}</td>
             <td>{price}</td>
             <th>
-              <button className="px-3 py-2 bg-slate-950 rounded-xl">
+              <label
+                htmlFor="my-modal-5"
+                className="btn px-3 py-2 bg-slate-950 rounded-xl">
                 view Details
-              </button>
+              </label>
             </th>
           </tr>
         </tbody>
       </table>
+      {/* modal body here */}
+      <UpdateToy _id={_id} />
     </div>
   );
 };

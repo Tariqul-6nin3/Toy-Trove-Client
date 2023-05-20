@@ -37,7 +37,14 @@ const Context = ({ children }) => {
       return unsuscribe();
     };
   }, []);
-  const authInfo = { createUser, loggedInUser, logOutUser, user, loading };
+  const authInfo = {
+    createUser,
+    loggedInUser,
+    logOutUser,
+    user,
+    loading,
+    setLoading,
+  };
   return <myContext.Provider value={authInfo}>{children}</myContext.Provider>;
 };
 
