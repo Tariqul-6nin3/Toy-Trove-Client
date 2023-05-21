@@ -28,7 +28,7 @@ const MytoyList = ({ toy, setToys, toys }) => {
     }).then(result => {
       if (result.isConfirmed) {
         console.log("deleted");
-        fetch(`http://localhost:5000/mytoys/${_id}`, {
+        fetch(`https://toys-trove-server.vercel.app/mytoys/${_id}`, {
           method: "DELETE",
         })
           .then(res => res.json())
@@ -78,8 +78,8 @@ const MytoyList = ({ toy, setToys, toys }) => {
             <th>
               <label
                 htmlFor="my-modal-5"
-                className="btn px-3 py-2 bg-slate-950 rounded-xl">
-                view Details
+                className="btn  text-white bg-slate-950 rounded-xl">
+                Update
               </label>
             </th>
           </tr>

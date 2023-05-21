@@ -61,12 +61,12 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/alltoys/${params.id}`),
+          fetch(`https://toys-trove-server.vercel.app/alltoys/${params.id}`),
       },
       {
         path: "alltoys",
         element: <AllToys />,
-        // loader: () => fetch("http://localhost:5000/alltoys"),
+        // loader: () => fetch("https://toys-trove-server.vercel.app/alltoys"),
       },
     ],
   },

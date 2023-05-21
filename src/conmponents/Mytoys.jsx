@@ -12,7 +12,7 @@ const Mytoys = () => {
 
   useEffect(() => {
     if (!loading && user) {
-      const url = `http://localhost:5000/mytoys?email=${user.email}`;
+      const url = `https://toys-trove-server.vercel.app/mytoys?email=${user.email}`;
       fetch(url)
         .then(res => res.json())
         .then(data => {
@@ -23,7 +23,7 @@ const Mytoys = () => {
   }, [loading, user]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/mysortedtoys")
+    fetch("https://toys-trove-server.vercel.app/mysortedtoys")
       .then(res => res.json())
       .then(data => {
         console.log(data);
@@ -68,13 +68,13 @@ const Mytoys = () => {
       </Helmet>
 
       <div className="my-container ">
-        <div className="dropdown dropdown-bottom dropdown-end">
-          <label tabIndex={0} className="btn m-1">
+        <div className="dropdown dropdown-bottom dropdown-end  justify-center">
+          <label tabIndex={0} className="btn m-1 text-black font-bold">
             Price
           </label>
           <ul
             tabIndex={0}
-            className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+            className="dropdown-content menu p-2 bg-[#e5e7eb] shadow bg-b rounded-box w-52">
             <li>
               <button onClick={() => handleSortClick("asc")}>
                 Low to high
@@ -87,7 +87,7 @@ const Mytoys = () => {
             </li>
           </ul>
         </div>
-        <h2 className="text-3xl font-bold text-black text-center">
+        <h2 className="text-3xl font-bold text-black text-center mb-5">
           Here are my toys
         </h2>
         <table className="table w-full">

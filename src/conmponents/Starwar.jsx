@@ -8,7 +8,7 @@ const Starwar = () => {
   console.log(starwar);
   const { user } = useContext(myContext);
   useEffect(() => {
-    const url = `http://localhost:5000/marvel?subcategory=StarWar`;
+    const url = `https://toys-trove-server.vercel.app/marvel?subcategory=StarWar`;
     fetch(url)
       .then(res => res.json())
       .then(data => setStarwar(data));

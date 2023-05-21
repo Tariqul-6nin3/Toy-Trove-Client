@@ -1,16 +1,21 @@
 import { FaFacebook, FaInstagram, FaTwitter, FaTiktok } from "react-icons/fa";
 import logo from "../../src/assets/toylogo.png";
+
 const Footer = () => {
   return (
-    <footer className="footer p-10 bg-black text-white ">
+    <footer className="footer p-10 bg-black text-white">
       <div>
-        <div className="">
-          <img className="w-16 h-16 " src={logo} alt="" />
+        <div className=" bg-slate-700 rounded-xl animate-bounce animate-pulse">
+          <img className="w-16 h-16" src={logo} alt="ToyTrove Logo" />
         </div>
         <p>
-          ACME Industries Ltd.
+          ToyTrove - The Ultimate Destination for Action Figure Toys
           <br />
-          Providing reliable tech since 1992
+          Providing a wide range of action figures and collectibles since 1992
+          <br />
+          123 Toy Street, Cityville, ABC 12345
+          <br />
+          Phone: 123-456-7890 | Email: info@toy-trove.com
         </p>
       </div>
       <div>
@@ -33,10 +38,10 @@ const Footer = () => {
         <a className="link link-hover">Privacy policy</a>
         <a className="link link-hover">Cookie policy</a>
         <div className="flex space-x-4 md:justify-center">
-          <FaFacebook className="md:text-3xl text-2xl font-bold"></FaFacebook>
-          <FaInstagram className="md:text-3xl text-2xl font-bold"></FaInstagram>
-          <FaTwitter className="md:text-3xl text-2xl font-bold"></FaTwitter>
-          <FaTiktok className="md:text-3xl text-2xl font-bold"></FaTiktok>
+          <FaFacebook className="md:text-3xl text-2xl font-bold" />
+          <FaInstagram className="md:text-3xl text-2xl font-bold" />
+          <FaTwitter className="md:text-3xl text-2xl font-bold" />
+          <FaTiktok className="md:text-3xl text-2xl font-bold" />
         </div>
       </div>
     </footer>

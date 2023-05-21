@@ -47,7 +47,7 @@ const AddToys = () => {
     };
     console.log(newToy);
 
-    fetch("http://localhost:5000/", {
+    fetch("https://toys-trove-server.vercel.app/", {
       method: "POST",
       headers: {
         "content-type": "application/json",

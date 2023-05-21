@@ -2,7 +2,7 @@
 
 const Blogs = () => {
   return (
-    <div className="z-0 pt-32 pb-12">
+    <div className="z-0 py-12">
       <div className="text-center">
         <h3 className="text-4xl text-black font-serif mb-7 font-bold">
           Question And Answering

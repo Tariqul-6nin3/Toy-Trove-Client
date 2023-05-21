@@ -17,7 +17,9 @@ const AvengerInfo = ({ singleAvenger }) => {
   } = singleAvenger;
   console.log(photo);
   return (
-    <div className="card menu-item card-compact pt-2 pb-7 w-11/12 mx-auto md:w-96 bg-base-100 shadow-xl">
+    <div
+      data-aos="fade-left"
+      className="card menu-item card-compact pt-2 pb-7 w-11/12 mx-auto md:w-96 bg-base-100 shadow-xl">
       <figure>
         <img
           className="h-96 px-2 py-4 w-full object-cover  rounded-md"
@@ -29,7 +31,7 @@ const AvengerInfo = ({ singleAvenger }) => {
         <div className="px-4 py-2">
           <h2 className="card-title text-2xl font-bold">{name}</h2>
           <h2 className="card-title text-xl font-semibold">Seller: {seller}</h2>
-          <p className="mt-3 text-base">{description.slice(0, 50)}</p>
+          <p className="mt-3 text-base">{description}</p>
           <h4 className="text-lg mt-2">
             Seller Email:
             <span className="text-stone-950"> {email}</span>

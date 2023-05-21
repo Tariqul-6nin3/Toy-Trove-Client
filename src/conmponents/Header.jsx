@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../src/assets/toylogo.png";
 import { useContext, useState } from "react";
 import { myContext } from "../providers/Context";
@@ -21,142 +21,142 @@ const Header = () => {
   };
 
   return (
-    <div className="navbar md:px-8 py-5  fixed z-50 rounded-b-lg  flex justify-evenly bg-[#e5e7eb]">
-      <div className="flex-none  md:hidden">
-        <button
-          onClick={() => setOpen(!open)}
-          className="btn btn-square btn-ghost">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            className="inline-block w-10 h-10  text-black stroke-current">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
+    <div className="navbar justify-between bg-base-100 container mx-auto">
       <div className="flex-1 ju">
-        <img className="w-10 h-10" src={logo} alt="" />
-        <h3 className="text-3xl font-serif font-bold ">ToyTrove</h3>
+        <img
+          className="w-10 h-10 animate-bounce animate-pulse"
+          src={logo}
+          alt=""
+        />
+        <Link to="/">
+          <h3 className="text-3xl font-serif font-bold ">ToyTrove</h3>
+        </Link>
       </div>
-      <div className="flex justify-center">
-        <div
-          className={`px-14 text-2xl font-semibold md:text-xl z-20 list-none md:flex md:space-x-6 ${
-            open
-              ? "absolute -top-40 md:top-6 right-0"
-              : "absolute top-24 bg-slate-50 w-full text-center  flex gap-3 left-0 h-96 pt-3 pb-4 items-center  flex-col "
-          }`}>
-          <li>
-            <NavLink
-              to="/"
-              aria-label="Home"
-              title="Home"
-              className={({ isActive }) => (isActive ? "active" : "default")}>
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/alltoys"
-              aria-label="Home"
-              title="Home"
-              className={({ isActive }) => (isActive ? "active" : "default  ")}>
-              All Toys
-            </NavLink>
-          </li>
 
-          <li>
-            <NavLink
-              to="/blogs"
-              aria-label="Blogs"
-              title="Blogs"
-              className={({ isActive }) => (isActive ? "active" : "default ")}>
-              Blogs
-            </NavLink>
-          </li>
-
-          {user ? (
-            <div className="md:flex  space-y-4 md:space-y-0 md:gap-4">
-              <li>
-                <NavLink
-                  to="/mytoys"
-                  aria-label="Blogs"
-                  title="Blogs"
-                  className={({ isActive }) =>
-                    isActive ? "active" : "default"
-                  }>
-                  My Toys
-                </NavLink>
+      <div className="flex-none">
+        <div className="dropdown dropdown-end hidden lg:block">
+          <ul tabIndex={0} className="flex gap-5 items-center font-bold ">
+            <Link>
+              {" "}
+              <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
+                Home
               </li>
-              <li>
-                <NavLink
-                  to="/addtoys"
-                  aria-label="Blogs"
-                  title="Blogs"
-                  className={({ isActive }) =>
-                    isActive ? "active" : "default"
-                  }>
-                  Add a Toys
-                </NavLink>
+            </Link>
+            <Link to="/blogs">
+              {" "}
+              <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
+                Blogs
               </li>
-              <li className="">
-                <NavLink
-                  onClick={handlelogOut}
-                  to="/login"
-                  aria-label="login"
-                  title="login"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "active px-4 py-2 rounded-lg bg-white"
-                      : "default px-4 py-2 rounded-lg bg-white"
-                  }>
+            </Link>
+            <Link to="/alltoys">
+              {" "}
+              <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
+                All Toys
+              </li>
+            </Link>
+            {user ? (
+              <>
+                <Link to="/mytoys">
+                  {" "}
+                  <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
+                    My Toys
+                  </li>
+                </Link>
+                <Link to="/addtoys">
+                  <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
+                    Add Toys
+                  </li>
+                </Link>
+              </>
+            ) : (
+              ""
+            )}
+            <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
+              {user ? (
+                <button
+                  className="btn btn-primary w-full"
+                  onClick={handlelogOut}>
                   LogOut
-                </NavLink>
-                <ToastContainer
-                  position="top-center"
-                  autoClose={5000}
-                  hideProgressBar={false}
-                  newestOnTop={true}
-                  closeOnClick
-                  rtl={false}
-                  pauseOnFocusLoss
-                  draggable
-                  pauseOnHover
-                  theme="light"
-                />
-              </li>
-              <div className="mb-2 ">
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div
-                    className="w-24 rounded-full mb-16"
-                    data-tooltip-id="my-tooltip"
-                    data-tooltip-content={user.displayName}
-                    data-tooltip-place="left">
-                    <Tooltip id="my-tooltip"></Tooltip>
-                    <img src={user.photoURL} alt={user.photoURL} />
-                  </div>
-                </label>
-              </div>
-            </div>
-          ) : (
-            <li className="">
-              <NavLink
-                to="/login"
-                aria-label="login"
-                title="login"
-                className={({ isActive }) =>
-                  isActive
-                    ? "active px-4 py-2 rounded-lg bg-white"
-                    : "default px-4 py-2 rounded-lg bg-white"
-                }>
-                LogIn
-              </NavLink>
+                </button>
+              ) : (
+                <Link to="/login">
+                  <button className="btn btn-primary w-full">Login</button>
+                </Link>
+              )}
             </li>
-          )}
+          </ul>
+        </div>
+
+        <div className="dropdown dropdown-end sm:ml-5">
+          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+            <div
+              className="w-12 rounded-full"
+              data-tooltip-id="my-tooltip"
+              data-tooltip-content={user ? user.displayName : "Add User"}>
+              <Tooltip className="z-30" id="my-tooltip"></Tooltip>
+              <img
+                src={
+                  user
+                    ? user.photoURL
+                    : "https://cdn-icons-png.flaticon.com/512/16/16363.png?w=740&t=st=1684413586~exp=1684414186~hmac=099d827d099e8fcd0fd10f202d63209149e7afa823db4512bc04a76d8b9e8761"
+                }
+                alt=""
+              />
+            </div>
+          </label>
+
+          <ul
+            tabIndex={0}
+            className="menu lg:hidden dropdown-content divide-y mt-3 px-6 py-2 shadow bg-base-100 rounded-box w-72 md:w-72 text-lg">
+            <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
+              <h2 className="text-xl font-semibold">{user?.displayName}</h2>
+            </li>
+            <Link>
+              <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
+                Home
+              </li>
+            </Link>
+            <Link to="/blog">
+              <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
+                Blogs
+              </li>
+            </Link>
+            <Link to="/allToys">
+              <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
+                All Toys
+              </li>
+            </Link>
+            {user ? (
+              <>
+                <Link to="/myToys">
+                  {" "}
+                  <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
+                    My Toys
+                  </li>
+                </Link>
+                <Link to="/addToys">
+                  <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
+                    Add Toys
+                  </li>
+                </Link>
+              </>
+            ) : (
+              ""
+            )}
+            <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
+              {user ? (
+                <button
+                  className="btn btn-primary w-full"
+                  onClick={handlelogOut}>
+                  LogOut
+                </button>
+              ) : (
+                <Link to="/login">
+                  <button className="btn btn-primary w-full">Login</button>
+                </Link>
+              )}
+            </li>
+          </ul>
         </div>
       </div>
     </div>

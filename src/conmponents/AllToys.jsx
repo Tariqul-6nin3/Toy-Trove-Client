@@ -14,7 +14,7 @@ const AllToys = () => {
     event.preventDefault();
     const form = event.target;
     const search = form.search.value;
-    fetch(`http://localhost:5000/searchedtoys?name=${search}`)
+    fetch(`https://toys-trove-server.vercel.app/searchedtoys?name=${search}`)
       .then(res => res.json())
       .then(data => {
         setAlltoys(data);
@@ -26,7 +26,7 @@ const AllToys = () => {
     }
   }, [alltoys]);
   useEffect(() => {
-    const url = "http://localhost:5000/alltoys";
+    const url = "https://toys-trove-server.vercel.app/alltoys";
     fetch(url)
       .then(res => res.json())
       .then(data => {
@@ -56,14 +56,20 @@ const AllToys = () => {
       </Helmet>
       <form
         onSubmit={handleSubmit}
-        className="pt-24 flex justify-center items-center ">
+        className=" flex justify-center items-center ">
         <input
           type="text"
           name="search"
-          placeholder="Type here"
+          placeholder="Search your toys"
           className="input mt-10 input-bordered input-info w-full max-w-xs"
         />
-        <button>Search</button>
+        <button
+          style={{
+            background: "linear-gradient(to bottom, #0f0c29, #302b63, #24243e)",
+          }}
+          className="btn btn-outline md:mx-2 mt-9 text-white px-4">
+          Search
+        </button>
       </form>
       <div className="my-container space-y-3 overflow-x-auto w-full">
         <table className="table w-full">

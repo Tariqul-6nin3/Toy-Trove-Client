@@ -8,7 +8,7 @@ const Marvel = () => {
   console.log(marvel);
   const { user } = useContext(myContext);
   useEffect(() => {
-    const url = `http://localhost:5000/marvel?subcategory=Marvel`;
+    const url = `https://toys-trove-server.vercel.app/marvel?subcategory=Marvel`;
     fetch(url)
       .then(res => res.json())
       .then(data => setMarvel(data));

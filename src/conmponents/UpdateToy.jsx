@@ -11,7 +11,7 @@ const UpdateToy = ({ _id }) => {
     const description = form.description.value;
     const newToy = { price, quantity, description };
 
-    fetch(`http://localhost:5000/mytoys/${_id}`, {
+    fetch(`https://toys-trove-server.vercel.app/mytoys/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

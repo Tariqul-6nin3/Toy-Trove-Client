@@ -13,7 +13,9 @@ const Gallery = () => {
 
   return (
     <div className="my-container mx-auto">
-      <h2 className="text-4xl font-bold mb-8 text-center">Toys Gallery</h2>
+      <h2 className="text-4xl text-black text-center mb-10 font-serif font-extrabold">
+        Some Of Premium Toys
+      </h2>
       <div className="flex flex-wrap justify-center">
         <div>
           <div
