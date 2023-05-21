@@ -10,6 +10,16 @@ const AllToys = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [alltoys, setAlltoys] = useState();
 
+  const handleSubmit = event => {
+    event.preventDefault();
+    const form = event.target;
+    const search = form.search.value;
+    fetch(`http://localhost:5000/searchedtoys?name=${search}`)
+      .then(res => res.json())
+      .then(data => {
+        setAlltoys(data);
+      });
+  };
   useEffect(() => {
     if (alltoys) {
       setIsLoading(false);
@@ -44,6 +54,17 @@ const AllToys = () => {
       <Helmet>
         <title>ToyTrove | alltoys</title>
       </Helmet>
+      <form
+        onSubmit={handleSubmit}
+        className="pt-24 flex justify-center items-center ">
+        <input
+          type="text"
+          name="search"
+          placeholder="Type here"
+          className="input mt-10 input-bordered input-info w-full max-w-xs"
+        />
+        <button>Search</button>
+      </form>
       <div className="my-container space-y-3 overflow-x-auto w-full">
         <table className="table w-full">
           <thead>

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import banner from "../../public/banner12333.jpg";
+
 import "../conmponents/styles/root.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -20,7 +20,7 @@ const Banner = () => {
       </div>
       <img
         className="w-full object-cover h-64 md:h-screen"
-        src={banner}
+        src="https://i.postimg.cc/0NvD2rMb/banner12333.jpg"
         alt="Banner"
       />
       <div className="absolute inset-0 bg-black opacity-50"></div>
