@@ -33,55 +33,68 @@ const UpdateToy = ({ _id }) => {
       </Helmet>
       <div>
         <input type="checkbox" id="my-modal-5" className="modal-toggle" />
-        <div className="modal">
-          <div className="modal-box w-11/12 max-w-5xl">
-            <form onSubmit={handleUpdate} className="max-w-md mx-auto">
+        <div className="modal ">
+          <div className="modal-box bg-[#e5e7eb]  w-11/12 max-w-4xl">
+            <form onSubmit={handleUpdate} className="w-8/12  mx-auto">
+              <h2 className="text-3xl mt-6 text-black font-bold text-center">
+                Update your toy Info
+              </h2>
               <div className="mb-4">
-                <label htmlFor="price" className="block font-medium mb-1">
+                <label
+                  htmlFor="price"
+                  className="block text-gray-700 font-bold mb-2">
                   Price
                 </label>
                 <input
                   type="number"
                   id="price"
                   name="price"
-                  className="w-full border border-gray-300 rounded py-2 px-3"
+                  className="w-full border-b-2 border-gray-300 focus:border-blue-500  appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight shadow-2xl focus:outline-none focus:shadow-outline"
                   placeholder="Enter price"
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="quantity" className="block font-medium mb-1">
+                <label
+                  htmlFor="quantity"
+                  className="block text-gray-700 font-bold mb-2">
                   Available Quantity
                 </label>
                 <input
                   type="number"
                   id="quantity"
                   name="quantity"
-                  className="w-full border border-gray-300 rounded py-2 px-3"
+                  className="w-full border-b-2 border-gray-300 focus:border-blue-500  appearance-none border rounded py-2 px-3 text-gray-700 leading-tight shadow-2xl focus:outline-none focus:shadow-outline"
                   placeholder="Enter quantity"
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="description" className="block font-medium mb-1">
+                <label
+                  htmlFor="description"
+                  className="block text-gray-700 font-bold mb-2">
                   Detail Description
                 </label>
                 <textarea
                   id="description"
                   name="description"
-                  className="w-full border border-gray-300 rounded py-2 px-3"
+                  className=" border-b-2 border-gray-300 focus:border-blue-500  appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight shadow-2xl focus:outline-none focus:shadow-outline"
                   rows="4"
                   placeholder="Enter description"></textarea>
               </div>
               <div className="text-center">
                 <button
+                  style={{
+                    background:
+                      "linear-gradient(to bottom, #0f0c29, #302b63, #24243e)",
+                  }}
                   type="submit"
-                  className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
+                  className="bg-blue-500 w-1/2  hover:bg-blue-600 text-white py-2 px-4 rounded-full">
                   Update
                 </button>
               </div>
             </form>
             <div className="modal-action">
               <label htmlFor="my-modal-5" className="btn">
-                Yay!
+                Back?
               </label>
             </div>
           </div>

@@ -44,14 +44,14 @@ const AllToys = () => {
       <Helmet>
         <title>ToyTrove | alltoys</title>
       </Helmet>
-      <div className="my-container">
+      <div className="my-container space-y-3 overflow-x-auto w-full">
         <table className="table w-full">
           <thead>
             <tr>
               <th>
                 <span></span>
               </th>
-              <th>Name</th>
+              <th>Toys name</th>
               <th>Seller</th>
               <th>Sub-Category</th>
               <th>Available Qty</th>

@@ -21,7 +21,7 @@ const Header = () => {
   };
 
   return (
-    <div className="navbar md:px-8 py-5 shadow-2xl fixed z-50 rounded-b-lg  flex justify-evenly bg-[#e5e7eb]">
+    <div className="navbar md:px-8 py-5  fixed z-50 rounded-b-lg  flex justify-evenly bg-[#e5e7eb]">
       <div className="flex-none  md:hidden">
         <button
           onClick={() => setOpen(!open)}
@@ -110,7 +110,9 @@ const Header = () => {
                   aria-label="login"
                   title="login"
                   className={({ isActive }) =>
-                    isActive ? "active" : "default"
+                    isActive
+                      ? "active px-4 py-2 rounded-lg bg-white"
+                      : "default px-4 py-2 rounded-lg bg-white"
                   }>
                   LogOut
                 </NavLink>
@@ -146,7 +148,11 @@ const Header = () => {
                 to="/login"
                 aria-label="login"
                 title="login"
-                className={({ isActive }) => (isActive ? "active" : "default")}>
+                className={({ isActive }) =>
+                  isActive
+                    ? "active px-4 py-2 rounded-lg bg-white"
+                    : "default px-4 py-2 rounded-lg bg-white"
+                }>
                 LogIn
               </NavLink>
             </li>

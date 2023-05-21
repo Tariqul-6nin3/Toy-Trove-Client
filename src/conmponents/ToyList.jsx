@@ -23,14 +23,14 @@ const ToyList = ({ toy }) => {
     <div className="overflow-x-auto w-full">
       <table className="table w-full">
         <tbody>
-          <tr>
-            <th>
+          <tr className="">
+            {/* <th>
               <label>
                 <button className="rounded-full bg-slate-900 text-white px-2 py-1">
                   X
                 </button>
               </label>
-            </th>
+            </th> */}
             <td>
               <div className="flex items-center space-x-3">
                 <div className="avatar">

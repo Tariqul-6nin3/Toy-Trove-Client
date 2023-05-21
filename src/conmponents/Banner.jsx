@@ -7,7 +7,17 @@ import "aos/dist/aos.css";
 
 const Banner = () => {
   return (
-    <div className="banner relative max-h-screen z-0 ">
+    <div className="banner relative max-h-screen z-0 relative">
+      <div className="absolute right-1/2 top-1/2 hover:right-0 bg-slate-300 animate-bounce animate-pulse opacity-50 hover:opacity-100 px-8 py-4">
+        <h3 className="text-4xl font-mono text-black">
+          Discover some premium action figure toy here. <br /> All relevant toys
+          is Up for you!!!
+        </h3>
+        <p className="text-base font-sans ">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit quia,
+          praesentium veritatis eveniet blanditiis hic.
+        </p>
+      </div>
       <img
         className="w-full object-cover h-64 md:h-screen"
         src={banner}

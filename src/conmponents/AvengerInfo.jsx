@@ -28,14 +28,14 @@ const AvengerInfo = ({ singleAvenger }) => {
       <div className="card-body">
         <div className="px-4 py-2">
           <h2 className="card-title text-2xl font-bold">{name}</h2>
-          <h2 className="card-title text-2xl font-bold">{seller}</h2>
-          <p className="mt-3 text-base">{description}</p>
-          <h4 className="text-lg mt-2 font-semibold">
-            Experience:
+          <h2 className="card-title text-xl font-semibold">Seller: {seller}</h2>
+          <p className="mt-3 text-base">{description.slice(0, 50)}</p>
+          <h4 className="text-lg mt-2">
+            Seller Email:
             <span className="text-stone-950"> {email}</span>
           </h4>
-          <p className="mt-2">{price} $</p>
-          <p className="mt-2">{quantity} $</p>
+          <p className="mt-2">Price:$ {price} </p>
+          <p className="mt-2">Available Qty:{quantity} Ea</p>
 
           <div className="card-actions mt-3 flex flex-col md:flex-row justify-between items-center">
             <div className="mt-1">
@@ -44,7 +44,6 @@ const AvengerInfo = ({ singleAvenger }) => {
                 style={{ maxWidth: 120 }}
                 value={rating}></Rating>
             </div>
-            <button className="btn-secondary">View Recipes</button>
           </div>
         </div>
       </div>
